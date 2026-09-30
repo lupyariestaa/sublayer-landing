@@ -1,0 +1,140 @@
+.cta__panel {
+  position: relative;
+  border-radius: var(--r-3xl);
+  overflow: hidden;
+  background: radial-gradient(120% 120% at 15% 0%, #2b31d6 0%, #161a3d 46%, #08080b 100%);
+  color: #fff;
+  padding: clamp(32px, 5vw, 68px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(28px, 4vw, 60px);
+  align-items: center;
+  box-shadow: var(--sh-xl);
+  isolation: isolate;
+}
+
+.cta__glow {
+  position: absolute;
+  top: -30%;
+  right: -12%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(53, 205, 232, 0.34) 0%, transparent 62%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.cta__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.cta__eyebrow {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--border-inverse);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta__eyebrow .eyebrow__dot {
+  background: rgba(53, 205, 232, 0.22);
+  color: #7fdef2;
+}
+
+.cta__title {
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+}
+
+.cta__lead {
+  font-size: var(--fs-lead);
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 52ch;
+  line-height: 1.62;
+}
+
+.cta__actions {
+  margin-top: 4px;
+}
+
+.cta__foot {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---- Visual card ---- */
+.cta__visual {
+  position: relative;
+}
+
+.cta__card {
+  border-radius: var(--r-xl);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-inverse);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--sh-lg);
+}
+
+.cta__cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cta__cardTag {
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: rgba(127, 222, 242, 0.16);
+  color: #7fdef2;
+  font-size: 0.7rem;
+  font-weight: 650;
+}
+
+.cta__chart {
+  height: 140px;
+}
+
+.cta__cardFoot {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-inverse);
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.cta__cardFoot strong {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 680;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 900px) {
+  .cta__panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cta__visual {
+    order: 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .cta__cardFoot {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

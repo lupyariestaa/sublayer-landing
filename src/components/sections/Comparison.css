@@ -1,0 +1,166 @@
+.cmp {
+  background: var(--surface-sunken);
+}
+
+.cmp__scroller {
+  border-radius: var(--r-xl);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-card);
+  box-shadow: var(--sh-md);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cmp__table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.cmp__table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.cmp__corner,
+.cmp__colHead {
+  padding: 18px 20px;
+  text-align: left;
+  font-size: var(--fs-xs);
+  font-weight: 620;
+  letter-spacing: -0.01em;
+  color: var(--ink-600);
+  background: var(--ink-50);
+  border-bottom: 1px solid var(--border-default);
+  white-space: nowrap;
+}
+
+.cmp__corner {
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+
+.cmp__colHead {
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.cmp__colHead.is-brand {
+  color: #fff;
+  background: var(--grad-brand);
+  border-bottom-color: transparent;
+  position: relative;
+}
+
+.cmp__badge {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 6px;
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 0.6rem;
+  font-weight: 640;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cmp__rowHead {
+  padding: 15px 20px;
+  text-align: left;
+  font-weight: 520;
+  color: var(--ink-700);
+  border-bottom: 1px solid var(--border-subtle);
+  line-height: 1.4;
+}
+
+.cmp__table tbody tr:last-child .cmp__rowHead,
+.cmp__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.cmp__table tbody tr:hover td,
+.cmp__table tbody tr:hover .cmp__rowHead {
+  background: rgba(79, 86, 255, 0.028);
+}
+
+.cmp__table td {
+  padding: 15px 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--ink-600);
+  vertical-align: middle;
+}
+
+.cmp__table td.cmp__brandCol {
+  background: rgba(79, 86, 255, 0.05);
+  border-left: 1px solid var(--brand-200);
+  border-right: 1px solid var(--brand-200);
+}
+
+.cmp__table tbody tr:hover td.cmp__brandCol {
+  background: rgba(79, 86, 255, 0.08);
+}
+
+.cmp__cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cmp__cell--yes {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--mint-100);
+  color: #0f8a60;
+}
+
+.cmp__cell--yes.is-brand {
+  background: var(--grad-brand);
+  color: #fff;
+  box-shadow: var(--sh-brand);
+}
+
+.cmp__cell--no {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ink-100);
+  color: var(--ink-400);
+}
+
+.cmp__cell--text {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink-600);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--ink-50);
+  border: 1px solid var(--border-subtle);
+}
+
+.cmp__cell--text.is-brand {
+  background: #fff;
+  border-color: var(--brand-300);
+  color: var(--brand-700);
+}
+
+.cmp__note {
+  margin-top: 16px;
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  max-width: 74ch;
+}
+
+@media (max-width: 600px) {
+  .cmp__corner,
+  .cmp__colHead,
+  .cmp__rowHead,
+  .cmp__table td {
+    padding-inline: 14px;
+  }
+}

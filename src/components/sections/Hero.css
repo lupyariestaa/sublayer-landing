@@ -1,0 +1,322 @@
+.hero {
+  position: relative;
+  padding-top: calc(var(--header-h) + clamp(38px, 6vw, 74px));
+  padding-bottom: clamp(40px, 6vw, 72px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---- Ambient backdrop ---- */
+.hero__backdrop {
+  position: absolute;
+  inset: -20% -10% auto;
+  height: 130%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.hero__orb--a {
+  top: 4%;
+  left: 50%;
+  width: min(720px, 78vw);
+  height: min(520px, 60vw);
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(79, 86, 255, 0.22) 0%,
+    rgba(122, 77, 240, 0.12) 42%,
+    transparent 72%
+  );
+}
+
+.hero__orb--b {
+  top: 22%;
+  right: 2%;
+  width: min(420px, 52vw);
+  height: min(420px, 52vw);
+  background: radial-gradient(circle, rgba(53, 205, 232, 0.2) 0%, transparent 68%);
+}
+
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(18, 18, 24, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 18, 24, 0.028) 1px, transparent 1px);
+  background-size: 62px 62px;
+  mask-image: radial-gradient(ellipse 78% 62% at 50% 30%, #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 78% 62% at 50% 30%, #000 0%, transparent 78%);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(36px, 5vw, 60px);
+}
+
+/* ---- Copy ---- */
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+  max-width: 860px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out);
+}
+
+.hero__copy.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.hero__title {
+  font-size: var(--fs-display);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.hero__lead {
+  max-width: 60ch;
+  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+}
+
+.hero__actions {
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.hero__note {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+/* ---- Stage (console + floats) ---- */
+.hero__stage {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  opacity: 0;
+  transform: translateY(30px) scale(0.985);
+  transition: opacity 900ms var(--ease-out) 120ms, transform 900ms var(--ease-out) 120ms;
+}
+
+.hero__stage.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.hero__consoleWrap {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__float {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--sh-lg);
+  animation: hero-float 7s ease-in-out infinite;
+}
+
+.hero__float strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 640;
+  letter-spacing: -0.01em;
+}
+
+.hero__float small {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.hero__float--recovery {
+  top: 12%;
+  left: -34px;
+  animation-delay: -1s;
+}
+
+.hero__float--subscribers {
+  bottom: 14%;
+  right: -30px;
+  animation-delay: -3s;
+}
+
+.hero__float--row {
+  bottom: -26px;
+  left: 6%;
+  flex-direction: column;
+  gap: 0;
+  width: 288px;
+  padding: 8px 14px;
+  animation-delay: -5s;
+}
+
+.hero__float--row .subrow:last-child {
+  border-bottom: 0;
+}
+
+.hero__floatDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.hero__floatDot--mint {
+  background: var(--mint-500);
+  box-shadow: 0 0 0 4px rgba(20, 185, 129, 0.18);
+}
+
+.hero__floatStack {
+  display: flex;
+}
+
+.hero__floatAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.hero__floatAvatar:not(:first-child) {
+  margin-left: -9px;
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* ---- Stats ---- */
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  width: 100%;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-xl);
+  background: var(--border-subtle);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 800ms var(--ease-out) 240ms, transform 800ms var(--ease-out) 240ms;
+}
+
+.hero__stats.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.hero__stat {
+  background: var(--surface-card);
+  padding: clamp(18px, 2.4vw, 26px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero__statValue {
+  font-size: clamp(1.5rem, 2.6vw, 2.05rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.1;
+}
+
+.hero__statLabel {
+  font-size: var(--fs-sm);
+  font-weight: 560;
+  color: var(--ink-800);
+}
+
+.hero__statDetail {
+  font-size: var(--fs-2xs);
+  color: var(--text-tertiary);
+  line-height: 1.45;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1180px) {
+  .hero__float--recovery {
+    left: 8px;
+  }
+  .hero__float--subscribers {
+    right: 8px;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hero__float--row {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__float {
+    padding: 9px 11px;
+  }
+  .hero__float--recovery {
+    top: 6%;
+    left: -6px;
+    transform: scale(0.92);
+  }
+  .hero__float--subscribers {
+    bottom: 4%;
+    right: -6px;
+    transform: scale(0.92);
+  }
+  .hero__float small {
+    display: none;
+  }
+}
+
+@media (max-width: 460px) {
+  .hero__float {
+    display: none;
+  }
+  .hero__stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__float {
+    animation: none;
+  }
+}

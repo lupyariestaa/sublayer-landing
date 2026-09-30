@@ -1,0 +1,125 @@
+.tm__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+}
+
+.tm__card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(22px, 2.6vw, 30px);
+  border-radius: var(--r-xl);
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--sh-sm);
+  transition: transform var(--dur-slow) var(--ease-out),
+    box-shadow var(--dur-slow) var(--ease-out);
+}
+
+.tm__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-lg);
+}
+
+.tm__metric {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  width: fit-content;
+  padding: 7px 14px;
+  border-radius: var(--r-pill);
+  background: var(--grad-brand-soft);
+  border: 1px solid var(--brand-200);
+}
+
+.tm__metric strong {
+  font-size: 1.12rem;
+  font-weight: 720;
+  letter-spacing: -0.03em;
+  color: var(--brand-700);
+}
+
+.tm__metric span {
+  font-size: var(--fs-xs);
+  color: var(--ink-600);
+  font-weight: 550;
+}
+
+.tm__quote {
+  position: relative;
+  margin: 0;
+}
+
+.tm__quoteMark {
+  color: var(--brand-300);
+  margin-bottom: 8px;
+}
+
+.tm__quote p {
+  font-size: 1.02rem;
+  line-height: 1.62;
+  color: var(--ink-800);
+  letter-spacing: -0.008em;
+}
+
+.tm__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
+}
+
+.tm__avatar {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.tm__avatar--indigo {
+  background: var(--grad-brand);
+}
+.tm__avatar--cyan {
+  background: linear-gradient(135deg, #35cde8, #12b8d6);
+}
+.tm__avatar--violet {
+  background: linear-gradient(135deg, #9b74ff, #7a4df0);
+}
+.tm__avatar--mint {
+  background: linear-gradient(135deg, #2ed4a0, #14b981);
+}
+.tm__avatar--amber {
+  background: linear-gradient(135deg, #f5bb52, #f0a020);
+}
+
+.tm__authorMeta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.tm__authorMeta strong {
+  font-size: var(--fs-sm);
+  font-weight: 620;
+}
+
+.tm__authorMeta small {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 820px) {
+  .tm__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
